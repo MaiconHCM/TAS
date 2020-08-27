@@ -1,6 +1,6 @@
 package br.edu.materdei.tas.core.service;
 
-import br.edu.materdei.tas.core.service.exception.ResourceNotFoundException;
+import br.edu.materdei.tas.core.exception.ResourceNotFoundException;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import br.edu.materdei.tas.core.entity.GrupoEntity;

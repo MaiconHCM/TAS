@@ -1,4 +1,4 @@
-package br.edu.materdei.tas.core.service.exception;
+package br.edu.materdei.tas.core.exception;
 
 public class ResourceNotFoundException extends Exception {
 
