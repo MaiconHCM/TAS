@@ -3,32 +3,32 @@ package br.edu.materdei.tas.core.service;
 import br.edu.materdei.tas.core.exception.ResourceNotFoundException;
 import java.util.List;
 import org.springframework.stereotype.Service;
-import br.edu.materdei.tas.core.entity.GrupoEntity;
-import br.edu.materdei.tas.core.repository.GrupoRepository;
+import br.edu.materdei.tas.core.entity.ProdutoEntity;
+import br.edu.materdei.tas.core.repository.ProdutoRepository;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Service
-public class GrupoService implements IBaseService<GrupoEntity> {
+public class ProdutoService implements IBaseService<ProdutoEntity> {
 
    @Autowired
-   private GrupoRepository repository;
+   private ProdutoRepository repository;
 
    @Override
    @Transactional
-   public List<GrupoEntity> FindAll() {
+   public List<ProdutoEntity> FindAll() {
       return repository.findAll();
    }
 
    @Override
    @Transactional
-   public GrupoEntity findById(Integer Id) throws ResourceNotFoundException {
+   public ProdutoEntity findById(Integer Id) throws ResourceNotFoundException {
       return repository.findById(Id).orElseThrow(() -> new ResourceNotFoundException(Id));
    }
 
    @Override
    @Transactional
-   public GrupoEntity save(GrupoEntity entidy) {
+   public ProdutoEntity save(ProdutoEntity entidy) {
       return repository.saveAndFlush(entidy);
    }
 
