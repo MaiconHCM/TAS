@@ -1,39 +1,41 @@
-package br.edu.materdei.tas.core.service;
+package br.edu.materdei.tas.venda.service;
 
-import br.edu.materdei.tas.core.entity.GrupoEntity;
 import br.edu.materdei.tas.core.exception.ResourceNotFoundException;
-import br.edu.materdei.tas.core.repository.GrupoRepository;
+import br.edu.materdei.tas.core.service.IBaseService;
+import br.edu.materdei.tas.venda.entity.PedidoEntity;
+import br.edu.materdei.tas.venda.repository.PedidoRepository;
 import java.util.List;
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class GrupoService implements IBaseService<GrupoEntity>{
+public class PedidoService implements IBaseService<PedidoEntity>{
 
     @Autowired
-    private GrupoRepository repository;
+    private PedidoRepository repository;
     
     @Override
-    @Transactional
-    public List<GrupoEntity> findAll() {
+     @Transactional
+    public List<PedidoEntity> findAll() {
         return repository.findAll();
     }
 
     @Override
-    @Transactional
-    public GrupoEntity findById(Integer id) throws ResourceNotFoundException {
+     @Transactional
+    public PedidoEntity findById(Integer id) throws ResourceNotFoundException {
         return repository.findById(id).orElseThrow(
                 () -> new ResourceNotFoundException(id));
     }
 
     @Override
-    @Transactional
-    public GrupoEntity save(GrupoEntity entity) {
+     @Transactional
+    public PedidoEntity save(PedidoEntity entity) {
         return repository.saveAndFlush(entity);
     }
 
     @Override
+     @Transactional
     public void delete(Integer id) throws ResourceNotFoundException {
         repository.deleteById(id);
     }

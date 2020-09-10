@@ -9,136 +9,134 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.criteria.Fetch;
 
 @Entity
 @Table(name = "produto")
 public class ProdutoEntity {
+    @Id
+    @GeneratedValue
+    private Integer id;
+    
+    @Column(length = 6, nullable = false)
+    private String codigo;
 
-   @Id
-   @GeneratedValue
-   private Integer id;
+    @Column(length = 50, nullable = false)
+    private String nome;
+    
+    @Lob
+    @Column(length = 5000)
+    private String descricao;
+    
+    @Column(nullable = false)
+    private Double preco;
+    
+    @Column(length = 1, nullable = false)
+    private String ativo;
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(nullable = false)
+    private GrupoEntity grupo;
 
-   @Column(length = 6, nullable = false)
-   private String codigo;
+    public ProdutoEntity() {
+        this.ativo = "S";
+    }
+    
 
-   @Column(length = 50, nullable = false)
-   private String nome;
+    /**
+     * @return the id
+     */
+    public Integer getId() {
+        return id;
+    }
 
-   @Lob
-   @Column(length = 5000)
-   private String descricao;
+    /**
+     * @param id the id to set
+     */
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-   @Column(nullable = false)
-   private Double preco;
+    /**
+     * @return the nome
+     */
+    public String getNome() {
+        return nome;
+    }
 
-   @Column(length = 1, nullable = false)
-   private Integer ativo;
-   
-   @ManyToOne(fetch = FetchType.EAGER)
-   @JoinColumn(nullable = false)
-   private GrupoEntity grupo;
+    /**
+     * @param nome the nome to set
+     */
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-   public ProdutoEntity() {
-      
-   }
+    /**
+     * @return the descricao
+     */
+    public String getDescricao() {
+        return descricao;
+    }
 
-   /**
-    * @return the codigo
-    */
-   public String getCodigo() {
-      return codigo;
-   }
+    /**
+     * @param descricao the descricao to set
+     */
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
 
-   /**
-    * @return the id
-    */
-   public Integer getId() {
-      return id;
-   }
+    /**
+     * @return the preco
+     */
+    public Double getPreco() {
+        return preco;
+    }
 
-   /**
-    * @param id the id to set
-    */
-   public void setId(Integer id) {
-      this.id = id;
-   }
+    /**
+     * @param preco the preco to set
+     */
+    public void setPreco(Double preco) {
+        this.preco = preco;
+    }
 
-   /**
-    * @return the nome
-    */
-   public String getNome() {
-      return nome;
-   }
+    /**
+     * @return the ativo
+     */
+    public String getAtivo() {
+        return ativo;
+    }
 
-   /**
-    * @param nome the nome to set
-    */
-   public void setNome(String nome) {
-      this.nome = nome;
-   }
+    /**
+     * @param ativo the ativo to set
+     */
+    public void setAtivo(String ativo) {
+        this.ativo = ativo;
+    }
 
-   /**
-    * @return the descricao
-    */
-   public String getDescricao() {
-      return descricao;
-   }
+    /**
+     * @return the grupo
+     */
+    public GrupoEntity getGrupo() {
+        return grupo;
+    }
 
-   /**
-    * @param descricao the descricao to set
-    */
-   public void setDescricao(String descricao) {
-      this.descricao = descricao;
-   }
+    /**
+     * @param grupo the grupo to set
+     */
+    public void setGrupo(GrupoEntity grupo) {
+        this.grupo = grupo;
+    }
 
-   /**
-    * @return the preco
-    */
-   public Double getPreco() {
-      return preco;
-   }
+    /**
+     * @return the codigo
+     */
+    public String getCodigo() {
+        return codigo;
+    }
 
-   /**
-    * @param preco the preco to set
-    */
-   public void setPreco(Double preco) {
-      this.preco = preco;
-   }
-
-   /**
-    * @return the ativo
-    */
-   public Integer getAtivo() {
-      return ativo;
-   }
-
-   /**
-    * @param ativo the ativo to set
-    */
-   public void setAtivo(Integer ativo) {
-      this.ativo = ativo;
-   }
-
-   /**
-    * @return the grupo
-    */
-   public GrupoEntity getGrupo() {
-      return grupo;
-   }
-
-   /**
-    * @param grupo the grupo to set
-    */
-   public void setGrupo(GrupoEntity grupo) {
-      this.grupo = grupo;
-   }
-
-   /**
-    * @param codigo the codigo to set
-    */
-   public void setCodigo(String codigo) {
-      this.codigo = codigo;
-   }
-
+    /**
+     * @param codigo the codigo to set
+     */
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
 }

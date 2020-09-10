@@ -5,111 +5,117 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+
 @MappedSuperclass
 public class Pessoa {
+    @Id
+    @GeneratedValue
+    private Integer id;
+    
+    @Column(length = 6, nullable = false)
+    private String codigo;
+    
+    @Column(length = 50, nullable = false)
+    private String nome;
+    
+    @Column(length = 250, nullable = false)
+    private String email;
+    
+    @Column(length = 250)
+    private String endereco;
+    
+    @Column(length = 1, nullable = false)
+    private String ativo;
 
-   @Id
-   @GeneratedValue
-   private Integer id;
+    public Pessoa() {
+        this.ativo = "S";
+    }
 
-   @Column(length = 6, nullable = false)
-   private String codigo;
+    /**
+     * @return the id
+     */
+    public Integer getId() {
+        return id;
+    }
 
-   @Column(length = 50, nullable = false)
-   private String nome;
-   
-   @Column(length = 250, nullable = false)
-   private String email;
-   
-   @Column(length = 250, nullable = false)
-   private String endereco;
-   private Integer ativo;
+    /**
+     * @param id the id to set
+     */
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-   public Pessoa() {
-      this.ativo = 0;
-   }
+    /**
+     * @return the codigo
+     */
+    public String getCodigo() {
+        return codigo;
+    }
 
-   /**
-    * @return the id
-    */
-   public Integer getId() {
-      return id;
-   }
+    /**
+     * @param codigo the codigo to set
+     */
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
 
-   /**
-    * @param id the id to set
-    */
-   public void setId(Integer id) {
-      this.id = id;
-   }
+    /**
+     * @return the nome
+     */
+    public String getNome() {
+        return nome;
+    }
 
-   /**
-    * @return the codigo
-    */
-   public String getCodigo() {
-      return codigo;
-   }
+    /**
+     * @param nome the nome to set
+     */
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-   /**
-    * @param codigo the codigo to set
-    */
-   public void setCodigo(String codigo) {
-      this.codigo = codigo;
-   }
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
 
-   /**
-    * @return the nome
-    */
-   public String getNome() {
-      return nome;
-   }
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-   /**
-    * @param nome the nome to set
-    */
-   public void setNome(String nome) {
-      this.nome = nome;
-   }
+    /**
+     * @return the endereco
+     */
+    public String getEndereco() {
+        return endereco;
+    }
 
-   /**
-    * @return the email
-    */
-   public String getEmail() {
-      return email;
-   }
+    /**
+     * @param endereco the endereco to set
+     */
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
 
-   /**
-    * @param email the email to set
-    */
-   public void setEmail(String email) {
-      this.email = email;
-   }
+    /**
+     * @return the ativo
+     */
+    public String getAtivo() {
+        return ativo;
+    }
 
-   /**
-    * @return the endereco
-    */
-   public String getEndereco() {
-      return endereco;
-   }
+    /**
+     * @param ativo the ativo to set
+     */
+    public void setAtivo(String ativo) {
+        this.ativo = ativo;
+    }
 
-   /**
-    * @param endereco the endereco to set
-    */
-   public void setEndereco(String endereco) {
-      this.endereco = endereco;
-   }
-
-   /**
-    * @return the ativo
-    */
-   public Integer getAtivo() {
-      return ativo;
-   }
-
-   /**
-    * @param ativo the ativo to set
-    */
-   public void setAtivo(Integer ativo) {
-      this.ativo = ativo;
-   }
+    
+    
+    
 }

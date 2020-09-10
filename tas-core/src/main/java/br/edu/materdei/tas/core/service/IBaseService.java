@@ -4,12 +4,13 @@ import br.edu.materdei.tas.core.exception.ResourceNotFoundException;
 import java.util.List;
 
 public interface IBaseService<T> {
-
-   List<T> FindAll();
-
-   T findById(Integer Id) throws ResourceNotFoundException;
-   
-   T save(T entidy);
-   
-   void delete(Integer Id) throws ResourceNotFoundException;
+    
+    List<T> findAll();
+    
+    T findById(Integer id) throws ResourceNotFoundException;
+    
+    T save(T entity);
+    
+    void delete(Integer id) throws ResourceNotFoundException;
+    
 }
