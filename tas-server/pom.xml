@@ -50,6 +50,11 @@
             <artifactId>tas-estoque</artifactId>
             <version>1.0.2009.00</version>
         </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>tas-core</artifactId>
+            <version>1.0.2008.00</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>

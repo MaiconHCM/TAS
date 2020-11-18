@@ -1,6 +1,7 @@
-package br.edu.materdei.tas.venda.entity;
+package br.edu.materdei.tas.flex.entity;
 
 import br.edu.materdei.tas.core.entity.ProdutoEntity;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,22 +10,33 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "itempedido")
-public class ItemPedidoEntity {
-    @Id @GeneratedValue(strategy =  GenerationType.IDENTITY)
+@Table(name = "estoque")
+public class EstoqueEntity {
+    @Id
+    @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Integer id;
+    
+    @Temporal(TemporalType.DATE)
+    @Column(nullable = false)
+    private Date dtmovto;
     
     @Column(nullable = false)
     private Double qtdade;
     
     @Column(nullable = false)
-    private Double vlrunit;
+    private String historico;
     
     @ManyToOne
     @JoinColumn(nullable = false)
     private ProdutoEntity produto;
+
+    public EstoqueEntity() {
+        this.dtmovto = new Date();
+    }
 
     /**
      * @return the id
@@ -38,6 +50,20 @@ public class ItemPedidoEntity {
      */
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    /**
+     * @return the dtmovto
+     */
+    public Date getDtmovto() {
+        return dtmovto;
+    }
+
+    /**
+     * @param dtmovto the dtmovto to set
+     */
+    public void setDtmovto(Date dtmovto) {
+        this.dtmovto = dtmovto;
     }
 
     /**
@@ -55,17 +81,17 @@ public class ItemPedidoEntity {
     }
 
     /**
-     * @return the vlrunit
+     * @return the historico
      */
-    public Double getVlrunit() {
-        return vlrunit;
+    public String getHistorico() {
+        return historico;
     }
 
     /**
-     * @param vlrunit the vlrunit to set
+     * @param historico the historico to set
      */
-    public void setVlrunit(Double vlrunit) {
-        this.vlrunit = vlrunit;
+    public void setHistorico(String historico) {
+        this.historico = historico;
     }
 
     /**
@@ -81,4 +107,6 @@ public class ItemPedidoEntity {
     public void setProduto(ProdutoEntity produto) {
         this.produto = produto;
     }
+    
+    
 }
