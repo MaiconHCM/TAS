@@ -14,7 +14,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "excessaoProduto")
+@Table(name = "excecaoproduto")
 public class ExcecaoProdutoEntity {
 
    //identificador

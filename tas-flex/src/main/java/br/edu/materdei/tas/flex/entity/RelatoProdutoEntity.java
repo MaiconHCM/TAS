@@ -13,7 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -39,7 +38,7 @@ public class RelatoProdutoEntity {
    @JoinColumn(nullable = true)
    private ExcecaoProdutoEntity excecao;
 
-   //Produto em prmocao? caso sim o valor do flex deve ser calculado a partir dele
+   // Produto em prmocao? caso sim o valor do flex deve ser calculado a partir dele
    @ManyToOne
    @JoinColumn(nullable = true)
    private PromocaoProdutoEntity promocao;

@@ -8,14 +8,13 @@
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>tas-core</artifactId>
+            <artifactId>tas-venda</artifactId>
             <version>1.0.2008.00</version>
         </dependency>
         <dependency>
-            <groupId>br.edu.materdei</groupId>
-            <artifactId>tas-venda</artifactId>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>tas-core</artifactId>
             <version>1.0.2008.00</version>
-            <type>jar</type>
         </dependency>
     </dependencies>
     <properties>
@@ -23,4 +22,5 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
+    <name>tas-flex</name>
 </project>

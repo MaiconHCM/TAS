@@ -11,28 +11,31 @@ import br.edu.materdei.tas.flex.repository.ExcecaoProdutoRepository;
 @Service
 public class ExcecaoProdutoService implements IBaseService<ExcecaoProdutoEntity> {
 
-    @Autowired
-    private ExcecaoProdutoRepository repository;
-    
-    @Override
-    public List<ExcecaoProdutoEntity> findAll() {
-        return repository.findAll();
-    }
+   @Autowired
+   private ExcecaoProdutoRepository repository;
 
-    @Override
-    public ExcecaoProdutoEntity findById(Integer id) throws ResourceNotFoundException {
-        return repository.findById(id).orElseThrow( 
-                ()-> new ResourceNotFoundException(id));
-    }
+   @Override
+   public List<ExcecaoProdutoEntity> findAll() {
+      return repository.findAll();
+   }
 
-    @Override
-    public ExcecaoProdutoEntity save(ExcecaoProdutoEntity entity) {
-        return repository.saveAndFlush(entity);
-    }
+   @Override
+   public ExcecaoProdutoEntity findById(Integer id) throws ResourceNotFoundException {
+      return repository.findById(id).orElseThrow(
+              () -> new ResourceNotFoundException(id));
+   }
 
-    @Override
-    public void delete(Integer id) throws ResourceNotFoundException {
-        repository.deleteById(id);
-    }
-    
+   @Override
+   public ExcecaoProdutoEntity save(ExcecaoProdutoEntity entity) {
+      return repository.saveAndFlush(entity);
+   }
+
+   @Override
+   public void delete(Integer id) throws ResourceNotFoundException {
+      repository.deleteById(id);
+   }
+
+   public ExcecaoProdutoEntity findByProductInException(int id) throws ResourceNotFoundException {
+      return repository.findByProductInException(id);
+   }
 }

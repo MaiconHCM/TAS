@@ -34,5 +34,11 @@ public class RelatoProdutoService implements IBaseService<RelatoProdutoEntity> {
     public void delete(Integer id) throws ResourceNotFoundException {
         repository.deleteById(id);
     }
+    public RelatoProdutoEntity findByVendaidAndProduto_id(int vendaid,int produto_id) throws ResourceNotFoundException {
+        return repository.findOneByVendaidAndProduto_id(vendaid,produto_id);
+    }
+    public List<RelatoProdutoEntity> findAllByVendaFlexid(int vendaid) throws ResourceNotFoundException {
+        return repository.findAllByVendaFlexid(vendaid);
+    }
     
 }

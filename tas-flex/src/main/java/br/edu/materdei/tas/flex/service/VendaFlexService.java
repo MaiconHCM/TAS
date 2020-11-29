@@ -11,28 +11,31 @@ import br.edu.materdei.tas.flex.repository.VendaFlexRepository;
 @Service
 public class VendaFlexService implements IBaseService<VendaFlexEntity> {
 
-    @Autowired
-    private VendaFlexRepository repository;
-    
-    @Override
-    public List<VendaFlexEntity> findAll() {
-        return repository.findAll();
-    }
+   @Autowired
+   private VendaFlexRepository repository;
 
-    @Override
-    public VendaFlexEntity findById(Integer id) throws ResourceNotFoundException {
-        return repository.findById(id).orElseThrow( 
-                ()-> new ResourceNotFoundException(id));
-    }
+   @Override
+   public List<VendaFlexEntity> findAll() {
+      return repository.findAll();
+   }
 
-    @Override
-    public VendaFlexEntity save(VendaFlexEntity entity) {
-        return repository.saveAndFlush(entity);
-    }
+   @Override
+   public VendaFlexEntity findById(Integer id) throws ResourceNotFoundException {
+      return repository.findById(id).orElseThrow(
+              () -> new ResourceNotFoundException(id));
+   }
 
-    @Override
-    public void delete(Integer id) throws ResourceNotFoundException {
-        repository.deleteById(id);
-    }
-    
+   @Override
+   public VendaFlexEntity save(VendaFlexEntity entity) {
+      return repository.saveAndFlush(entity);
+   }
+
+   @Override
+   public void delete(Integer id) throws ResourceNotFoundException {
+      repository.deleteById(id);
+   }
+   public VendaFlexEntity findByVendaId(Integer id){
+      return repository.findOneByVendaid(id);
+   }
+
 }
